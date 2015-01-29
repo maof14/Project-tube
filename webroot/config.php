@@ -59,7 +59,7 @@ $triton['title_append'] = ' | Project &lt; tube &gt;';
 * Settings for the database 
 */
 $dbpath = realpath(TRITON_INSTALL_PATH.'/db/.htsqlite.db');
-$triton['database']['dsn']               = 'sqlite:'.$dbpath; // 'mysql:host=localhost;dbname=maof14;'; // easier with SQLite???
+$triton['database']['dsn']               = 'sqlite:'.$dbpath; // 'mysql:host=localhost;dbname=maof14;
 // $triton['database']['verbose'] 			 = false;
 // $triton['database']['username']       = 'root'; // maof14
 // $triton['database']['password']       = ''; // 
@@ -75,18 +75,16 @@ $triton['stylesheets'][] = 'style/font-awesome-4.3.0/css/font-awesome.min.css';
 
 // custom for project - array of above and below javascript files. 
 $triton['js']['above'][] = 'js/modernizr.js';
-$triton['js']['above'][] = 'js/less.min.js?ts=<?=time()?>'; // forcing download. 
+$triton['js']['above'][] = 'js/less.min.js?ts=<?=time()?>'; // forcing download. FAIL! function as string... 
 $triton['js']['below'][] = 'js/jquery.min.js'; // jQuery before using jQuery.. :) 
 $triton['js']['below'][] = 'js/main.js';
 $triton['js']['below'][] = 'js/mediaplayer.js';
+$triton['js']['below'][] = 'js/videosliderplugin.js';
 
 $triton['header'] = <<<EOD
 <span class='sitetitle'>Project &lt; tube &gt;</span>
-<span class='siteslogan'>Video upload plugins</span>
+<span class='siteslogan'>Video upload tools with PHP, JavaScript and jQuery</span>
 EOD;
-
-// problemet här är ju att man typ assignar till page. Som ju inte är någonting, utan en string bara. Utan den ska bara flyga in som ett arrayelement i redan existerande array. 
-// $str = checkLogin() == false ? 'page' => ['text' => 'Page', 'url' => 'yrl.php'] : null;
 
 $menu = array(
 	'start' => [

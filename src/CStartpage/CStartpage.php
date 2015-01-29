@@ -17,12 +17,11 @@ class CStartpage {
 		// echo '<pre>';
 		// print_r($res);
 		// echo '</pre>';
-		$html = "<div id='rolling-videos'>\n";
-		$html .= "<div id='slide'>\n";
+		$html = "<div id='sliding-videos'>\n";
 		foreach($res as $video) {
-			$html .= "<div class='rolling-video'><figure><a href='video.php?v=" . $video->url . "'><img class='thumbnail' src='img.php?src={$video->src}png&amp;width=100' alt='' /></a><figcaption class='small grey'>" . $video->title. "</figcaption></figure></div>\n";
+			// the rest outside this div, but same format. 
+			$html .= "<div class='sliding-video'><figure><a href='video.php?v=" . $video->url . "'><img class='thumbnail' src='img.php?src={$video->src}png&amp;height=250' alt='' /></a><figcaption class='small grey'>" . $video->title. "</figcaption></figure></div>\n";
 		}
-		$html .= "</ul>\n";
 		$html .= "</div>\n";
 		return $html;
 	}

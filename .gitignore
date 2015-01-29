@@ -4,9 +4,10 @@
 *.log
 .htsqlite.db
  
-# clips
+# clips and videos
 #######
 *.mp4
+*.png
 
 # OS generated files #
 ######################
