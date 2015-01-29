@@ -1,0 +1,612 @@
+/* base less */ 
+
+/**
+ * Style with LESS.
+ */
+/**
+* import header font
+*/
+
+@import url(http://fonts.googleapis.com/css?family=Arimo);
+@import url(http://fonts.googleapis.com/css?family=Ubuntu);
+
+/** --------------------------------------------------------------
+ * Reset. http://meyerweb.com/eric/tools/css/reset/ v2.0 | 20110126
+ *
+ */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,
+a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,
+small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,
+table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,
+figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,
+time,mark,audio,video{/* margin:0;*/padding:0;border:0;/*font-size:100%;*//*font:inherit;*/vertical-align:baseline;}
+body{line-height:1;}
+ol,ul{list-style: none;}
+blockquote,q{quotes:none;}
+blockquote:before,blockquote:after,q:before,q:after{content:'';content:none;}
+table{border-collapse:collapse;border-spacing:0;}
+
+
+/** --------------------------------------------------------------
+ * HTML5 elements.
+ *
+ */
+article,aside,details,figcaption,figure,footer,header,hgroup,nav,section{display:block;}
+audio,canvas,video{display:inline-block;*display:inline;*zoom:1;}
+audio:not([controls]){display:none;}
+[hidden]{display:none;}
+
+
+/** --------------------------------------------------------------
+ * The micro clearfix http://nicolasgallagher.com/micro-clearfix-hack/
+ *
+ */
+.clearfix(){*zoom:1;
+  &:before, &:after {content:"";display:table;}
+  &:after {clear:both;}
+}
+.wrapper{.clearfix();}
+
+
+/** --------------------------------------------------------------
+ * Typography.
+ * 
+ */
+@font-family-arimo: "Arimo", sans-serif;
+@font-family-ubuntu: "Ubuntu", sans-serif;
+@font-family-helvetica: Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-monospace: monospace;
+@magic-number: 16px - 100%/1.375; /* den här är åt helvete..? */
+body{color:#000;font:100.01%/1.375 @font-family-arimo;}
+/* p{margin-bottom:@magic-number;} */
+b,strong{font-weight:bold;}
+i,em{font-style:italic;}
+pre,code{font:1em/1.375 @font-family-monospace;}
+a{color: #000;}
+.font-shadow {
+  text-shadow: 1px 1px 1px #CCC;
+}
+h1,h2,h3,h4,h5 {
+  font-weight: initial;
+}
+
+
+/* headers */
+h1{font-size:2.375em;line-height:1.1579;/*margin-bottom:@magic-number;*/}
+
+/* Lists */
+li ul,li ol{margin:0;}
+ul,ol{margin:0.6875em 1.5em 1.375em 0;padding-left:1.5em;}
+ul{list-style-type:disc;}
+ol{list-style-type:decimal;}
+
+/* Tables. Because of the need for padding on TH and TD, the vertical rhythm
+  on table cells has to be 33px, instead of the standard 22px or 44px
+  of other elements. */
+table{margin-bottom:1.375em;width:100%;}
+caption{text-align:left;font-style:italic;}
+thead{border-bottom:2px solid #222;}
+th{vertical-align:bottom;font-weight:bold;text-align:left;}
+th,td{padding:5px 10px 5px 5px;}
+tbody tr:nth-child(even) td, tbody tr.even td {}
+/*tbody tr{border-bottom:1px solid #eee;
+  &:hover{color:#000;}
+}*/
+tfoot{font-style:italic;}
+
+
+/** --------------------------------------------------------------
+ * CSS3 mixins.
+ * 
+ */
+.border-radius(@radius:5px) {
+  -webkit-border-radius: @radius;
+     -moz-border-radius: @radius;
+          border-radius: @radius;
+}
+
+.box-shadow(@shadow:5px 5px 5px 5px @grey) {
+  -webkit-box-shadow: @shadow;
+     -moz-box-shadow: @shadow;
+          box-shadow: @shadow;
+}
+.transition(@property: all, @time: 1s, @timing: ease-in-out) {
+  -webkit-transition: @property @time @timing;
+     -moz-transition: @property @time @timing;
+      -ms-transition: @property @time @timing;
+       -o-transition: @property @time @timing;
+          transition: @property @time @timing;
+}
+.transition-property(@property: all) {
+  -webkit-transition-property: @property;
+     -moz-transition-property: @property;
+      -ms-transition-property: @property;
+       -o-transition-property: @property;
+          transition-property: @property;
+}
+.transition-duration(@time: 1s) {
+  -webkit-transition-duration: @time;
+     -moz-transition-duration: @time;
+      -ms-transition-duration: @time;
+       -o-transition-duration: @time;
+          transition-duration: @time;
+}
+.transition-timing-function(@timing: ease-in-out) {
+  -webkit-transition-timing-function: @timing;
+     -moz-transition-timing-function: @timing;
+      -ms-transition-timing-function: @timing;
+       -o-transition-timing-function: @timing;
+          transition-timing-function: @timing;
+}
+.rotate(@degrees) {
+  -webkit-transform: rotate(@degrees);
+     -moz-transform: rotate(@degrees);
+      -ms-transform: rotate(@degrees);
+       -o-transform: rotate(@degrees);
+          transform: rotate(@degrees);
+}
+.scale(@ratio) {
+  -webkit-transform: scale(@ratio);
+     -moz-transform: scale(@ratio);
+      -ms-transform: scale(@ratio);
+       -o-transform: scale(@ratio);
+          transform: scale(@ratio);
+}
+.skew(@x, @y) {
+  -webkit-transform: skew(@x, @y);
+     -moz-transform: skew(@x, @y);
+      -ms-transform: skew(@x, @y);
+       -o-transform: skew(@x, @y);
+          transform: skew(@x, @y);
+}
+.translate(@x, @y) {
+  -webkit-transform: translate(@x, @y);
+     -moz-transform: translate(@x, @y);
+      -ms-transform: translate(@x, @y);
+       -o-transform: translate(@x, @y);
+          transform: translate(@x, @y);
+}
+.translate3d(@x, @y, @z) {
+  -webkit-transform: translate(@x, @y, @z);
+     -moz-transform: translate(@x, @y, @z);
+      -ms-transform: translate(@x, @y, @z);
+       -o-transform: translate(@x, @y, @z);
+          transform: translate(@x, @y, @z);
+}
+.transform(@functions) {
+  -webkit-transform: @functions;
+     -moz-transform: @functions;
+      -ms-transform: @functions;
+       -o-transform: @functions;
+          transform: @functions;
+}
+
+
+/** --------------------------------------------------------------
+ * Colors.
+ * 
+ */
+@black:#000;
+@blue:#049cdb;
+@green:#46a546;
+@red:#9d261d;
+@yellow:#ffc40d;
+@orange:#f89406;
+@grey:#555;
+@greyLight:#999;
+@greyLighter:#eee;
+
+.black{color:@black;}
+.blue{color:@blue;}
+.green{color:@green;}
+.red{color:@red;}
+.yellow{color:@yellow;}
+.orange{color:@orange;}
+
+
+/** --------------------------------------------------------------
+ * Page layout.
+ * 
+ */
+body{margin:0px auto;background: url("../img/subtle_dots.png") repeat center center fixed;}
+
+/* 
+ *	Content
+ * 
+*/ 
+
+div#main, 
+footer{max-width: 940px;margin:0px auto;clear:both;}
+div#main {
+	min-height:600px;
+}
+
+/** --------------------------------------------------------------
+ * Boxes.
+ * 
+ */
+/*#flash{margin:2em auto;background-color:fadeout(@greyLighter,5%);min-height:10em;border:1px solid @greyLight;padding:1em;
+.border-radius(10px);.box-shadow();}
+#content{margin:2em auto;background-color:fadeout(@greyLighter,5%);min-height:10em;border:1px solid @greyLight;padding:1em;
+.border-radius(10px);.box-shadow();}*/
+
+/** --------------------------------------------------------------
+ * Footer.
+ * 
+ */
+@color:@greyLight;
+footer{border-top:1px solid @color;font-size:smaller;color:@color;margin-top:20px;padding-top:0.5em;margin-bottom:20px;
+  a{color:@color;text-decoration:none;
+    &:hover{color:darken(@color,40%);text-decoration:underline;}
+  }
+}
+
+/**
+* Navbar
+*/
+ /* 121429 */
+/* @green */ 
+#navbar{
+  ul{list-style-type: none;
+    li{display:inline;
+      a{color:#BFCFE9;margin:10px;text-decoration: none;}
+    }
+  }
+}
+
+/*
+* Header
+*
+*/
+
+#header {
+  /*background-color: rgba(255, 255, 255, 0.2);*/
+  background: url("../img/background.png") repeat center center fixed;
+  /**/
+  min-height: 100px;
+  color: #fff;
+  border-bottom: 1px solid #ccc;
+  .sitetitle {
+    font-size: 48px;
+  }
+  .container {
+    max-width: 940px;margin:0px auto;
+  }
+  .navmenu.inactive {
+    display: none;
+  }
+  .navmenu {
+    white-space: nowrap;
+    position: relative;
+    right: 25px;
+    float: right;
+    top: 15px;
+    a {
+      margin: 0.5em;
+      color: #bbb;
+      text-decoration: none;
+    }
+    a[href=""] {
+      display: none;
+    }
+    a.selected {
+      color: #fff;
+    }
+  }
+
+  .sitetitle, .sitetitle a{
+    font-size: 48px;
+    position: absolute;
+    top: 8px;
+  }
+  .siteslogan {
+    position: relative;
+    top: 68px;
+    left: 10px;
+    color: #bbb;
+  }
+} 
+
+#progress-upload {
+  display: none;
+  width: 100%;
+}
+
+#upload-output {
+  display: block;
+  #video-url {
+    width: 100%;
+  }
+}
+  
+
+/*
+* Headings
+*
+*/
+
+h1.welcome {
+  font-size: 72px;
+}
+
+#header .container img {
+  position: relative;
+  float: right;
+  right: 10px;
+  top: 24px;
+}
+
+/*
+article#content {
+  margin-top: 50px;
+  min-height: 400px;
+  background-color: rgba(255, 255, 255, 0.2);
+  background: none repeat scroll 0% 0% rgba(255, 255, 255, 0.4); 
+  padding: 20px;
+  border-radius: 10px;
+  color: rgb(54, 54, 54); 
+}
+*/
+
+
+/*
+* Buttons
+*/
+.btn {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  -moz-user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.btn:hover {
+  background: #ccc;
+}
+
+.fileinput-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.fileinput-button input {
+  margin: 0px;
+  opacity: 0;
+  direction: ltr;
+  cursor: pointer;
+  right: 0px;
+  top: 0px;
+  position: absolute;
+  font-size: 200px;
+}
+
+input[type=file] {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+/*
+*
+* Forms
+*
+*/
+
+input[type=text], input[type=password] {
+  width: 300px;
+  font-family: @font-family-arimo;
+  font-size: 12px;
+}
+textarea {
+  font-family: @font-family-arimo;
+  font-size: 12px;
+  width: 300px;
+  height: 100px;
+}
+
+#new-comment {
+  textarea {
+    width: 100%;
+  }
+}
+/* 
+*
+* Feedback messages, (error, success)
+*
+*/
+
+.success {
+  background: #CCFFCC;
+  color: #006600;
+  border: 1px solid #003300;
+  padding: 10px;
+}
+
+.error {
+  background: #FF9999;
+  color: #990000;
+  border: 1px solid #800000;
+  padding: 10px;
+}
+
+/*
+*
+* Tables (mattias)
+*
+*/
+
+form.form-table {
+    fieldset {
+      margin: 0;
+      padding: 0;
+    }
+    table tbody {
+      tr, td {
+        padding: 5px 0px 5px 0px;
+        margin: 0;
+        border: none;
+      }
+    }
+}
+
+table {
+  table tbody {
+    tr, td {
+      padding: 5px 0px 5px 0px;
+      margin: 0;
+      border: none;
+    }
+  }
+}
+
+/*
+*
+* Comments
+*
+*/
+.comment {
+  margin: 10px 0 10px 0;
+  .comment-header {
+    font-size: smaller;
+    .data {
+      color: @grey;
+    }
+  }
+  .no-comments {
+    color: @grey;
+  }
+}
+.comments-area {
+  clear: both;
+}
+
+/*
+* Profiles
+*/
+
+div.profile {
+  overflow: hidden;
+}
+
+div.info-column {
+    width: 25%;
+    clear: left;
+    margin-top: 16px;
+    border-right: 1px solid #CCC;
+}
+
+div.user-presentation-text {
+    width: 70%;
+    margin-left: 4%;
+}
+
+figure {
+    margin: 0px 0px 22px;
+}
+.score-area {
+    position: relative;
+    left: 42px;
+}
+
+.user-info {
+    clear: both;
+}
+
+div#videos-by-user {
+    width: 70%;
+    margin-left: 4%;
+}
+.small {
+    font-size: smaller;
+}
+
+.grey {
+    color: #666;
+}
+.center {
+  text-align: center;
+}
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+
+.label-info {
+  color: @grey;
+}
+
+/*
+* Like progress bar
+*
+*/
+
+progress#video-likes {
+  background: #FF0000;
+  height: 5px;
+  border: none;
+}
+
+.link {
+  cursor: pointer;
+}
+.like-button {
+  border: none;
+  background: transparent;
+    .link
+}
+
+img.thumbnail {
+  border: 1px solid @grey;
+  padding: 2px;
+}
+
+/*
+*
+* Start page specific
+*
+*/
+
+#rolling-videos {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  text-align: center;
+}
+
+#slide {
+  width: 2000px
+  overflow: hidden;
+  position:absolute;
+  left: 100px;
+}
+
+.rolling-video {
+  float: left;
+}
+/*#rolling-videos ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+#rolling-videos ul li {
+  display: inline;
+}
+
+#rolling-videos ul li figure {
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+}*/
