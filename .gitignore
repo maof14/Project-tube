@@ -2,9 +2,9 @@
 ######################
 *.sqlite
 *.log
-.htsqlite.db
+*.db
  
-# clips and videos
+# videos and video snapshots (mostly) #
 #######
 *.mp4
 *.png
