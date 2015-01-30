@@ -24,7 +24,7 @@ $triton['title'] = "Upload";
 $triton['main'] = <<<EOD
 <h1>Upload</h1>
 $notice
-<p>Here you can upload videos. Maximum file size for now is 32 MB.</p>
+<p>Here you can upload videos. Maximum file size for now is 100 MB.</p>
 <form id='file-upload' enctype="multipart/form-data" method='post'>
 <div class='upload-details hidden'>
 <p><label>Title</label><br />

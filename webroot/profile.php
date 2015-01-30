@@ -11,6 +11,7 @@ Detta är en sidkontroller - den ska ligga i katalogen webroot och den har som s
 include(__DIR__ . '/config.php');
 
 $id = isset($_GET['id']) ? $_GET['id'] : null; // if another user in get. id by link. 
+if(!isset($id) && !isset($_SESSION['user'])) exit('No user specified.');
 $user = new CUser($triton['database'], $id);
 
 $videoTable = $user->getVideoList();

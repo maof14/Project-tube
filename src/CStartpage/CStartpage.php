@@ -12,11 +12,8 @@ class CStartpage {
 	}
 
 	public function getLatestVideos() {
-		$sql = "SELECT v.*, u.acronym FROM video AS v JOIN user AS u ORDER BY v.created DESC LIMIT 0, 20";
+		$sql = "SELECT v.*, u.acronym FROM video AS v JOIN user AS u ON v.user = u.id ORDER BY v.created DESC LIMIT 0, 20";
 		$res = $this->db->ExecuteSelectQueryAndFetchAll($sql);
-		// echo '<pre>';
-		// print_r($res);
-		// echo '</pre>';
 		$html = "<div id='sliding-videos'>\n";
 		foreach($res as $video) {
 			// the rest outside this div, but same format. 

@@ -26,11 +26,13 @@ $(document).ready(function(){ // document ready start.
 				$('.upload-details').css({'display': 'block'});
 				$('#title').val(e.name);
 				$('#filename').val(e.name);
-				if(e.type !== 'video/quicktime') {
-					console.log('Cannot upload this file. Wrong type.');
+				if(e.type === 'video/mp4' || e.type === 'video/quicktime') {
+					console.log('Correct file type.');
+				} else {
+					console.log('Wrong file type, cant upload.');
     				$('#upload-output').toggleClass('error');
     				$('#submit').attr('disabled', 'disabled');
-    				$('#upload-output').html('<p>This file cannot be uploaded. We only accept video/quicktime videos for now. Try a video recorded from an iPhone.</p>');
+    				$('#upload-output').html('<p>This file cannot be uploaded. We only accept video/quicktime or video/mp4 videos for now. Try a video recorded from an iPhone.</p>');
     			}
 			}(f);
     	reader.readAsDataURL(f);

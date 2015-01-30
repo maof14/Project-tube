@@ -100,8 +100,8 @@ $menu = array(
 		'url' => checkLogin() == true ? 'profile.php' : null
 	],
 	'plugin' => [
-		'text' => 'Plugin', 
-		'url' => 'plugin.php'
+		'text' => 'Tools', 
+		'url' => 'tools.php'
 	],
 	'about' => [
 		'text' => 'About', 
