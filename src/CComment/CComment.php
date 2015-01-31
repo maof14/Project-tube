@@ -59,9 +59,8 @@ class CComment {
 		$html .= "<td><textarea id='commenttext' name='commenttext'></textarea></td>\n";
 		$html .= "</tr>\n";
 		$html .= "<tr>\n";
-		$html .= "<td><button type='button' id='comment-add' class='btn'><i class='fa fa-comment'></i> Add comment</button></td>\n";
+		$html .= "<td><button type='button' id='comment-add' class='btn'><i class='fa fa-comment'></i> Add comment</button><input type='hidden' name='videoid' value='{$videoId}'></td>\n";
 		$html .= "</tr>\n";
-		$html .= "<input type='hidden' name='videoid' value='{$videoId}'>\n";
 		$html .= "</table>\n";
 		$html .= "</fieldset>\n";
 		$html .= "</form>\n";
