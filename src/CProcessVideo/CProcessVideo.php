@@ -127,5 +127,6 @@ class CProcessVideo {
 		$file = $this->getFileNameWithoutExtension($this->storePath); // storepath should be the entire filelength. 
 		$target = $this->getFileNameWithoutExtension($this->thumbPath);
 		exec("{$this->pathToFfmpeg} -i {$file}mp4 -ss 00:00:00.000 -f image2 -vframes 1 {$target}png 2>&1");
+		exec("chmod 777 -R {$target}png 2>&1"); // 2>&1.. 
 	}
 }

@@ -69,7 +69,7 @@ $triton['database']['dsn']               = 'sqlite:'.$dbpath; // 'mysql:host=loc
 
 */
 
-$triton['stylesheet'] = 'style/style.less';
+$triton['stylesheet'] = 'style/style.css';
 $triton['stylesheets'][] = 'style/font-awesome-4.3.0/css/font-awesome.min.css';
 // $triton['favicon'] = 'favicon.ico';
 
