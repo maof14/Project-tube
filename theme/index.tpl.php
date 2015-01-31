@@ -4,10 +4,10 @@
 	<meta charset='utf-8'/>
 	<title><?=get_title($title)?></title>
 	<?php if(isset($favicon)): ?><link rel='shortcut icon' href='<?=$favicon?>'/><?php endif; ?>
-	<link rel='stylesheet/less' type='text/css' href='<?=$stylesheet?>'>
+	<link rel='stylesheet' type='text/css' href='<?=$stylesheet?>'>
 	<?php if(isset($stylesheets)): ?>
 	<?php foreach($stylesheets as $val): ?>
-	<link rel="stylesheet/less" type="text/css" href='<?=$val?>'/>
+	<link rel="stylesheet" type="text/css" href='<?=$val?>'/>
 	<?php endforeach; ?>
 	<?php endif; ?>
 	<?php if(isset($js['above'])) : ?> 
