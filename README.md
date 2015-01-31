@@ -11,6 +11,12 @@ In order to use the video upload feature, you need to have ffmpeg installed on t
 
 Some of the tools also requires [jQuery](http://jquery.com) and [LESS](http://lesscss.org). 
 
+Some folders are expected by the project which does not come with Github because they are empty here. These are: 
+
+* webroot/cache (for image processing)
+* webroot/video (for storing videos)
+* webroot/video/tmp (for processing videos being stored)
+
 Triton-base
 -----------
  
@@ -33,6 +39,4 @@ This software is free software and carries a MIT license.
  .
 ..:
  
-Copyright (c) 2015 Mattias Olsson
-
-# Project-tube
+Copyright (c) 2015 Mattias Olsson, Triton, Project tube
