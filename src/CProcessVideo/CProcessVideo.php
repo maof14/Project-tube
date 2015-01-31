@@ -41,6 +41,7 @@ class CProcessVideo {
 				break;
 			case 'ubuntuserv1':
 				$this->pathToFfmpeg = '/usr/bin/ffmpeg'; // Mattias server
+				break;
 			default:
 				exit('You cannot upload videos on this server. Sorry!'); // Assuming ffmpeg is not installed elsewhere, i.e BTH student server.
 				break;
